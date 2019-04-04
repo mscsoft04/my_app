@@ -1,3 +1,26 @@
-<p>
-  employee works!
-</p>
+<form #form="ngForm" autocomplete="off">
+    <div class="form-group">
+      <label>Fname</label>
+      <input  #Fname="ngModel" name="Fname" [(ngModel)]="Service.fromData.Fname" class="form-control" required>
+
+    </div>
+    <div class="validation-error" *ngIf="Fname.invalid && Fname.touched">This field is required.</div>
+    <div class="form-group">
+      <label >Lname</label>
+      <input  #Lname="ngModel" name="Lname" [(ngModel)]="Service.fromData.Lname" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input  #Email="ngModel" name="Email" [(ngModel)]="Service.fromData.Email" class="form-control" required>
+      </div>
+      <div class="validation-error" *ngIf="Email.invalid && Email.touched">This field is required.</div>
+      <div class="form-group">
+          <label>Address</label>
+          <input  #Address="ngModel" name="Address" [(ngModel)]="Service.fromData.Address" class="form-control">
+
+        </div>
+
+        <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  </form>
