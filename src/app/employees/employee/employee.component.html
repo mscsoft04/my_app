@@ -1,4 +1,4 @@
-<form #form="ngForm" autocomplete="off">
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
     <div class="form-group">
       <label>Fname</label>
       <input  #Fname="ngModel" name="Fname" [(ngModel)]="Service.fromData.Fname" class="form-control" required>
@@ -21,6 +21,6 @@
         </div>
 
         <div class="form-group">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="form.invalid"class="btn btn-primary">Submit</button>
   </div>
   </form>

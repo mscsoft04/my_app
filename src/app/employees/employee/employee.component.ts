@@ -15,12 +15,13 @@ export class EmployeeComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.resetFrom();
+    this.resetForm(null);
+
   }
 
-  resetFrom(form : NgForm){
+  resetForm(form : NgForm){
      if(form!=null)
-       from.resetFrom();
+       form.resetForm();
       this.Service.fromData ={
           EmployeeID:null,
           Fname:"",
@@ -32,4 +33,16 @@ export class EmployeeComponent implements OnInit {
 
 
   }
+  onSubmit(form : NgForm){
+   this.InsertData(form);
+
+  }
+  InsertData(form:NgForm){
+   this.Service.InsertEmpolyee(form.value).subscribe(res=>{
+      this.resetForm(form);
+      this.Service.GetLIstView();
+   });
+
+  }
+
 }
